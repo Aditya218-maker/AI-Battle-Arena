@@ -5,8 +5,15 @@ config();
  */
 
 type CONFIG = {
-    GOOGLE_API_KEY: string;
-    MISTRAL_APIA_KEY: string;
-    COHERE_API_KEY: string;
+    readonly GEMINI_API_KEY: string; //means these properties(API KEYs) can't be changed in future
+    readonly MISTRAL_API_KEY: string;
+    readonly COHERE_API_KEY: string;
 }
 
+export const config: CONFIG = {
+    GEMINI_API_KEY : process.env.GOOGLE_API_KEY || "",
+    MISTRAL_API_KEY : process.env.MISTRAL_APIA_KEY || "",
+    COHERE_API_KEY : process.env.COHERE_API_KEY || ""
+}
+
+export default config;
