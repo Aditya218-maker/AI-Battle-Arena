@@ -6,7 +6,8 @@ import { createAgent, HumanMessage, providerStrategy } from "langchain";
 
 /*
 Jab nodes ek dusre k saath data share krte hain toh us data ka format kya hoga wo define krne k liye StateSchema ka use hota hai 
- */
+
+*/
 
 const state = new StateSchema({
     problem: z.string().default(""),
@@ -19,7 +20,6 @@ const state = new StateSchema({
         solution_2_reasoning: z.string().default(""),
     })
 })
-
 
 const solutionNode: GraphNode<typeof state> = async (state) => {
 
@@ -86,11 +86,8 @@ const graph = new StateGraph(state)
     .compile()
 
 export default async function (problem: string) { 
-
     const result = await graph.invoke({
         problem: problem
     })
-
     return result
-
 }
