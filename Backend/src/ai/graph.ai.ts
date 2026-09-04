@@ -1,7 +1,12 @@
 import { StateGraph, StateSchema, START, END, type GraphNode, type CompiledStateGraph } from "@langchain/langgraph"
 import z from "zod";
-import { mistralAIModel, cohereModel, geminiModel } from "./model.ai.js";
+import { mistralModel, cohereModel, geminiModel } from "./model.ai.js";
 import { createAgent, HumanMessage, providerStrategy } from "langchain";
+
+
+/*
+Jab nodes ek dusre k saath data share krte hain toh us data ka format kya hoga wo define krne k liye StateSchema ka use hota hai 
+ */
 
 const state = new StateSchema({
     problem: z.string().default(""),
@@ -19,7 +24,7 @@ const state = new StateSchema({
 const solutionNode: GraphNode<typeof state> = async (state) => {
 
     const [mistralResponse, cohereResponse] = await Promise.all([
-        mistralAIModel.invoke(state.problem),
+        mistralModel.invoke(state.problem),
         cohereModel.invoke(state.problem)
     ])
 
