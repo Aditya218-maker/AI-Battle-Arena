@@ -3,12 +3,6 @@ import z from "zod";
 import { mistralModel, cohereModel, geminiModel } from "./model.ai.js";
 import { createAgent, HumanMessage, providerStrategy } from "langchain";
 
-
-/*
-Jab nodes ek dusre k saath data share krte hain toh us data ka format kya hoga wo define krne k liye StateSchema ka use hota hai 
-
-*/
-
 const state = new StateSchema({
     problem: z.string().default(""),
     solution_1: z.string().default(""),
