@@ -16,4 +16,4 @@ export const app_config: CONFIG = {
     COHERE_API_KEY : process.env.COHERE_API_KEY || ""
 }
 
-export default app_config;
+export default app_config; 
