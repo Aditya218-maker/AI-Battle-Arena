@@ -1,9 +1,0 @@
-FLOW:-
-There will be a user and 2 AI agents. User will give a problem to both agents and both will generate a solution lets say Gemini soln and GPT soln
-There will be a AI judge which will recommend the better solution of the both 
-
-
-Langgraph : 
-user ---> start ---- problem statement -----> invoke both AI models and generate both solutions ----- soln 1; soln 2 -------> AI judge(compare) ---solution 1,2, judge recommendation-----> user
-
-
